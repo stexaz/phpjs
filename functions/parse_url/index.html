@@ -67,14 +67,13 @@
   </a>
   <header role="banner"><hgroup>
   <div id="logo">
-  	<div id="logoLeft">{</div>
-  	<div id="logoText">php</div>
-  	<div id="logoRight">}</div>
+    <h1><a href="/">php.js</a></h1>
   	<div class="clear"></div>
   </div>
-  <h1><a href="/">.js</a></h1>
+
   
-    <h2>A resource of php functions in JavaScript</h2>
+  
+    <h2>Learn how to do it in JavaScript. Explore boundaries porting languages. Enjoy functions that turn out to be useful.</h2>
   
   <div class="clear"></div>
 </hgroup>
@@ -170,6 +169,7 @@
 <span class='line-number'>49</span>
 <span class='line-number'>50</span>
 <span class='line-number'>51</span>
+<span class='line-number'>52</span>
 </pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">function</span> <span class="nx">parse_url</span> <span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="nx">component</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>  <span class="c1">// http://kevin.vanzonneveld.net</span>
 </span><span class='line'>  <span class="c1">// +      original by: Steven Levithan (http://blog.stevenlevithan.com)</span>
@@ -186,7 +186,7 @@
 </span><span class='line'>  <span class="c1">// %          note: an extra slash after the scheme/protocol (to allow file:/// as in PHP)</span>
 </span><span class='line'>  <span class="c1">// *     example 1: parse_url(&#39;http://username:password@hostname/path?arg=value#anchor&#39;);</span>
 </span><span class='line'>  <span class="c1">// *     returns 1: {scheme: &#39;http&#39;, host: &#39;hostname&#39;, user: &#39;username&#39;, pass: &#39;password&#39;, path: &#39;/path&#39;, query: &#39;arg=value&#39;, fragment: &#39;anchor&#39;}</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">key</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="s1">&#39;scheme&#39;</span><span class="p">,</span> <span class="s1">&#39;authority&#39;</span><span class="p">,</span> <span class="s1">&#39;userInfo&#39;</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;pass&#39;</span><span class="p">,</span> <span class="s1">&#39;host&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span><span class="p">,</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">query</span><span class="p">,</span> <span class="nx">key</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="s1">&#39;scheme&#39;</span><span class="p">,</span> <span class="s1">&#39;authority&#39;</span><span class="p">,</span> <span class="s1">&#39;userInfo&#39;</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;pass&#39;</span><span class="p">,</span> <span class="s1">&#39;host&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span><span class="p">,</span>
 </span><span class='line'>            <span class="s1">&#39;relative&#39;</span><span class="p">,</span> <span class="s1">&#39;path&#39;</span><span class="p">,</span> <span class="s1">&#39;directory&#39;</span><span class="p">,</span> <span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="s1">&#39;query&#39;</span><span class="p">,</span> <span class="s1">&#39;fragment&#39;</span><span class="p">],</span>
 </span><span class='line'>    <span class="nx">ini</span> <span class="o">=</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">php_js</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">php_js</span><span class="p">.</span><span class="nx">ini</span><span class="p">)</span> <span class="o">||</span> <span class="p">{},</span>
 </span><span class='line'>    <span class="nx">mode</span> <span class="o">=</span> <span class="p">(</span><span class="nx">ini</span><span class="p">[</span><span class="s1">&#39;phpjs.parse_url.mode&#39;</span><span class="p">]</span> <span class="o">&amp;&amp;</span>
@@ -214,7 +214,8 @@
 </span><span class='line'>        <span class="nx">ini</span><span class="p">[</span><span class="s1">&#39;phpjs.parse_url.queryKey&#39;</span><span class="p">].</span><span class="nx">local_value</span><span class="p">)</span> <span class="o">||</span> <span class="s1">&#39;queryKey&#39;</span><span class="p">;</span>
 </span><span class='line'>    <span class="nx">parser</span> <span class="o">=</span> <span class="sr">/(?:^|&amp;)([^&amp;=]*)=?([^&amp;]*)/g</span><span class="p">;</span>
 </span><span class='line'>    <span class="nx">uri</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{};</span>
-</span><span class='line'>    <span class="nx">uri</span><span class="p">[</span><span class="nx">key</span><span class="p">[</span><span class="mi">12</span><span class="p">]].</span><span class="nx">replace</span><span class="p">(</span><span class="nx">parser</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$0</span><span class="p">,</span> <span class="nx">$1</span><span class="p">,</span> <span class="nx">$2</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">query</span> <span class="o">=</span> <span class="nx">uri</span><span class="p">[</span><span class="nx">key</span><span class="p">[</span><span class="mi">12</span><span class="p">]]</span> <span class="o">||</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">query</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">parser</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$0</span><span class="p">,</span> <span class="nx">$1</span><span class="p">,</span> <span class="nx">$2</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">$1</span><span class="p">)</span> <span class="p">{</span><span class="nx">uri</span><span class="p">[</span><span class="nx">name</span><span class="p">][</span><span class="nx">$1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">$2</span><span class="p">;}</span>
 </span><span class='line'>    <span class="p">});</span>
 </span><span class='line'>  <span class="p">}</span>
@@ -410,7 +411,7 @@ but I simply get /world back from php.js because it thinks hello is the host
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Kevin van Zonneveld -
+  Copyright &copy; 2013 - Kevin van Zonneveld -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
    -
   <span class="credit">Theme by <a href="http://melandri.net/2012/07/23/darkstripes-octopress-theme-released/">alessandro melandri</a></span>

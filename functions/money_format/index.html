@@ -62,14 +62,13 @@
   </a>
   <header role="banner"><hgroup>
   <div id="logo">
-  	<div id="logoLeft">{</div>
-  	<div id="logoText">php</div>
-  	<div id="logoRight">}</div>
+    <h1><a href="/">php.js</a></h1>
   	<div class="clear"></div>
   </div>
-  <h1><a href="/">.js</a></h1>
+
   
-    <h2>A resource of php functions in JavaScript</h2>
+  
+    <h2>Learn how to do it in JavaScript. Explore boundaries porting languages. Enjoy functions that turn out to be useful.</h2>
   
   <div class="clear"></div>
 </hgroup>
@@ -321,6 +320,9 @@
 <span class='line-number'>205</span>
 <span class='line-number'>206</span>
 <span class='line-number'>207</span>
+<span class='line-number'>208</span>
+<span class='line-number'>209</span>
+<span class='line-number'>210</span>
 </pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">function</span> <span class="nx">money_format</span> <span class="p">(</span><span class="nx">format</span><span class="p">,</span> <span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>  <span class="c1">// http://kevin.vanzonneveld.net</span>
 </span><span class='line'>  <span class="c1">// +   original by: Brett Zamir (http://brett-zamir.me)</span>
@@ -443,7 +445,10 @@
 </span><span class='line'>        <span class="nx">fraction</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
 </span><span class='line'>        <span class="nx">dec_pt</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
 </span><span class='line'>      <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">right</span> <span class="o">&lt;</span> <span class="nx">fraction</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nx">fraction</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nb">parseFloat</span><span class="p">(</span><span class="nx">fraction</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">right</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="nx">fraction</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="nx">right</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">10</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="nx">fraction</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nb">parseFloat</span><span class="p">(</span><span class="nx">fraction</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">right</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="nx">fraction</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="nx">right</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">right</span> <span class="o">&gt;</span> <span class="nx">fraction</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>          <span class="nx">fraction</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">right</span> <span class="o">-</span> <span class="nx">fraction</span><span class="p">.</span><span class="nx">length</span> <span class="o">+</span> <span class="mi">1</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nx">fraction</span><span class="p">;</span> <span class="c1">// prepend with 0&#39;s</span>
+</span><span class='line'>        <span class="p">}</span>
 </span><span class='line'>      <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">right</span> <span class="o">&gt;</span> <span class="nx">fraction</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>        <span class="nx">fraction</span> <span class="o">+=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">right</span> <span class="o">-</span> <span class="nx">fraction</span><span class="p">.</span><span class="nx">length</span> <span class="o">+</span> <span class="mi">1</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">);</span> <span class="c1">// pad with 0&#39;s</span>
 </span><span class='line'>      <span class="p">}</span>
@@ -788,7 +793,7 @@ Anybody help me?
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Kevin van Zonneveld -
+  Copyright &copy; 2013 - Kevin van Zonneveld -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
    -
   <span class="credit">Theme by <a href="http://melandri.net/2012/07/23/darkstripes-octopress-theme-released/">alessandro melandri</a></span>

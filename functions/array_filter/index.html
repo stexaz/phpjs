@@ -63,14 +63,13 @@
   </a>
   <header role="banner"><hgroup>
   <div id="logo">
-  	<div id="logoLeft">{</div>
-  	<div id="logoText">php</div>
-  	<div id="logoRight">}</div>
+    <h1><a href="/">php.js</a></h1>
   	<div class="clear"></div>
   </div>
-  <h1><a href="/">.js</a></h1>
+
   
-    <h2>A resource of php functions in JavaScript</h2>
+  
+    <h2>Learn how to do it in JavaScript. Explore boundaries porting languages. Enjoy functions that turn out to be useful.</h2>
   
   <div class="clear"></div>
 </hgroup>
@@ -143,25 +142,35 @@
 <span class='line-number'>26</span>
 <span class='line-number'>27</span>
 <span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
 </pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">function</span> <span class="nx">array_filter</span> <span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">func</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>  <span class="c1">// http://kevin.vanzonneveld.net</span>
 </span><span class='line'>  <span class="c1">// +   original by: Brett Zamir (http://brett-zamir.me)</span>
 </span><span class='line'>  <span class="c1">// +   input by: max4ever</span>
 </span><span class='line'>  <span class="c1">// +   improved by: Brett Zamir (http://brett-zamir.me)</span>
 </span><span class='line'>  <span class="c1">// %        note 1: Takes a function as an argument, not a function&#39;s name</span>
-</span><span class='line'>  <span class="c1">// *     example 1: var odd = function (num) {return (num &amp; 1);}; </span>
+</span><span class='line'>  <span class="c1">// *     example 1: var odd = function (num) {return (num &amp; 1);};</span>
 </span><span class='line'>  <span class="c1">// *     example 1: array_filter({&quot;a&quot;: 1, &quot;b&quot;: 2, &quot;c&quot;: 3, &quot;d&quot;: 4, &quot;e&quot;: 5}, odd);</span>
 </span><span class='line'>  <span class="c1">// *     returns 1: {&quot;a&quot;: 1, &quot;c&quot;: 3, &quot;e&quot;: 5}</span>
 </span><span class='line'>  <span class="c1">// *     example 2: var even = function (num) {return (!(num &amp; 1));}</span>
 </span><span class='line'>  <span class="c1">// *     example 2: array_filter([6, 7, 8, 9, 10, 11, 12], even);</span>
-</span><span class='line'>  <span class="c1">// *     returns 2: {0: 6, 2: 8, 4: 10, 6: 12} </span>
+</span><span class='line'>  <span class="c1">// *     returns 2: {0: 6, 2: 8, 4: 10, 6: 12}</span>
 </span><span class='line'>  <span class="c1">// *     example 3: var arr = array_filter({&quot;a&quot;: 1, &quot;b&quot;: false, &quot;c&quot;: -1, &quot;d&quot;: 0, &quot;e&quot;: null, &quot;f&quot;:&#39;&#39;, &quot;g&quot;:undefined});</span>
 </span><span class='line'>  <span class="c1">// *     returns 3: {&quot;a&quot;:1, &quot;c&quot;:-1};</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="kd">var</span> <span class="nx">retObj</span> <span class="o">=</span> <span class="p">{},</span>
 </span><span class='line'>    <span class="nx">k</span><span class="p">;</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="nx">func</span> <span class="o">=</span> <span class="nx">func</span> <span class="o">||</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="nx">v</span><span class="p">;};</span>
+</span><span class='line'>  <span class="nx">func</span> <span class="o">=</span> <span class="nx">func</span> <span class="o">||</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">v</span><span class="p">;</span> <span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// Fix: Issue #73</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="o">===</span> <span class="s1">&#39;[object Array]&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">retObj</span> <span class="o">=</span> <span class="p">[];</span>
+</span><span class='line'>  <span class="p">}</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="k">for</span> <span class="p">(</span><span class="nx">k</span> <span class="k">in</span> <span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nx">func</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">k</span><span class="p">]))</span> <span class="p">{</span>
@@ -532,7 +541,7 @@ array_filter: function  (arr, func) {
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Kevin van Zonneveld -
+  Copyright &copy; 2013 - Kevin van Zonneveld -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
    -
   <span class="credit">Theme by <a href="http://melandri.net/2012/07/23/darkstripes-octopress-theme-released/">alessandro melandri</a></span>

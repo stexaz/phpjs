@@ -65,14 +65,13 @@
   </a>
   <header role="banner"><hgroup>
   <div id="logo">
-  	<div id="logoLeft">{</div>
-  	<div id="logoText">php</div>
-  	<div id="logoRight">}</div>
+    <h1><a href="/">php.js</a></h1>
   	<div class="clear"></div>
   </div>
-  <h1><a href="/">.js</a></h1>
+
   
-    <h2>A resource of php functions in JavaScript</h2>
+  
+    <h2>Learn how to do it in JavaScript. Explore boundaries porting languages. Enjoy functions that turn out to be useful.</h2>
   
   <div class="clear"></div>
 </hgroup>
@@ -168,6 +167,25 @@
 <span class='line-number'>49</span>
 <span class='line-number'>50</span>
 <span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
 </pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">function</span> <span class="nx">utf8_encode</span> <span class="p">(</span><span class="nx">argString</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>  <span class="c1">// http://kevin.vanzonneveld.net</span>
 </span><span class='line'>  <span class="c1">// +   original by: Webtoolkit.info (http://www.webtoolkit.info/)</span>
@@ -180,6 +198,7 @@
 </span><span class='line'>  <span class="c1">// +   bugfixed by: Ulrich</span>
 </span><span class='line'>  <span class="c1">// +   bugfixed by: Rafal Kukawski</span>
 </span><span class='line'>  <span class="c1">// +   improved by: kirilloid</span>
+</span><span class='line'>  <span class="c1">// +   bugfixed by: kirilloid</span>
 </span><span class='line'>  <span class="c1">// *     example 1: utf8_encode(&#39;Kevin van Zonneveld&#39;);</span>
 </span><span class='line'>  <span class="c1">// *     returns 1: &#39;Kevin van Zonneveld&#39;</span>
 </span><span class='line'>
@@ -200,9 +219,27 @@
 </span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nx">c1</span> <span class="o">&lt;</span> <span class="mi">128</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>      <span class="nx">end</span><span class="o">++</span><span class="p">;</span>
 </span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">c1</span> <span class="o">&gt;</span> <span class="mi">127</span> <span class="o">&amp;&amp;</span> <span class="nx">c1</span> <span class="o">&lt;</span> <span class="mi">2048</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>      <span class="nx">enc</span> <span class="o">=</span> <span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">((</span><span class="nx">c1</span> <span class="o">&gt;&gt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">|</span> <span class="mi">192</span><span class="p">,</span> <span class="p">(</span><span class="nx">c1</span> <span class="o">&amp;</span> <span class="mi">63</span><span class="p">)</span> <span class="o">|</span> <span class="mi">128</span><span class="p">);</span>
-</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>      <span class="nx">enc</span> <span class="o">=</span> <span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">((</span><span class="nx">c1</span> <span class="o">&gt;&gt;</span> <span class="mi">12</span><span class="p">)</span> <span class="o">|</span> <span class="mi">224</span><span class="p">,</span> <span class="p">((</span><span class="nx">c1</span> <span class="o">&gt;&gt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">63</span><span class="p">)</span> <span class="o">|</span> <span class="mi">128</span><span class="p">,</span> <span class="p">(</span><span class="nx">c1</span> <span class="o">&amp;</span> <span class="mi">63</span><span class="p">)</span> <span class="o">|</span> <span class="mi">128</span><span class="p">);</span>
+</span><span class='line'>      <span class="nx">enc</span> <span class="o">=</span> <span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span>
+</span><span class='line'>         <span class="p">(</span><span class="nx">c1</span> <span class="o">&gt;&gt;</span> <span class="mi">6</span><span class="p">)</span>        <span class="o">|</span> <span class="mi">192</span><span class="p">,</span>
+</span><span class='line'>        <span class="p">(</span> <span class="nx">c1</span>        <span class="o">&amp;</span> <span class="mi">63</span><span class="p">)</span> <span class="o">|</span> <span class="mi">128</span>
+</span><span class='line'>      <span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">c1</span> <span class="o">&amp;</span> <span class="mh">0xF800</span> <span class="o">!=</span> <span class="mh">0xD800</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">enc</span> <span class="o">=</span> <span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span>
+</span><span class='line'>         <span class="p">(</span><span class="nx">c1</span> <span class="o">&gt;&gt;</span> <span class="mi">12</span><span class="p">)</span>       <span class="o">|</span> <span class="mi">224</span><span class="p">,</span>
+</span><span class='line'>        <span class="p">((</span><span class="nx">c1</span> <span class="o">&gt;&gt;</span> <span class="mi">6</span><span class="p">)</span>  <span class="o">&amp;</span> <span class="mi">63</span><span class="p">)</span> <span class="o">|</span> <span class="mi">128</span><span class="p">,</span>
+</span><span class='line'>        <span class="p">(</span> <span class="nx">c1</span>        <span class="o">&amp;</span> <span class="mi">63</span><span class="p">)</span> <span class="o">|</span> <span class="mi">128</span>
+</span><span class='line'>      <span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// surrogate pairs</span>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">c1</span> <span class="o">&amp;</span> <span class="mh">0xFC00</span> <span class="o">!=</span> <span class="mh">0xD800</span><span class="p">)</span> <span class="p">{</span> <span class="k">throw</span> <span class="k">new</span> <span class="nx">RangeError</span><span class="p">(</span><span class="s2">&quot;Unmatched trail surrogate at &quot;</span> <span class="o">+</span> <span class="nx">n</span><span class="p">);</span> <span class="p">}</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">c2</span> <span class="o">=</span> <span class="nx">string</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="o">++</span><span class="nx">n</span><span class="p">);</span>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">c2</span> <span class="o">&amp;</span> <span class="mh">0xFC00</span> <span class="o">!=</span> <span class="mh">0xDC00</span><span class="p">)</span> <span class="p">{</span> <span class="k">throw</span> <span class="k">new</span> <span class="nx">RangeError</span><span class="p">(</span><span class="s2">&quot;Unmatched lead surrogate at &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span> <span class="p">}</span>
+</span><span class='line'>      <span class="nx">c1</span> <span class="o">=</span> <span class="p">((</span><span class="nx">c1</span> <span class="o">&amp;</span> <span class="mh">0x3FF</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="nx">c2</span> <span class="o">&amp;</span> <span class="mh">0x3FF</span><span class="p">)</span> <span class="o">+</span> <span class="mh">0x10000</span><span class="p">;</span>
+</span><span class='line'>      <span class="nx">enc</span> <span class="o">=</span> <span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span>
+</span><span class='line'>         <span class="p">(</span><span class="nx">c1</span> <span class="o">&gt;&gt;</span> <span class="mi">18</span><span class="p">)</span>       <span class="o">|</span> <span class="mi">240</span><span class="p">,</span>
+</span><span class='line'>        <span class="p">((</span><span class="nx">c1</span> <span class="o">&gt;&gt;</span> <span class="mi">12</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">63</span><span class="p">)</span> <span class="o">|</span> <span class="mi">128</span><span class="p">,</span>
+</span><span class='line'>        <span class="p">((</span><span class="nx">c1</span> <span class="o">&gt;&gt;</span> <span class="mi">6</span><span class="p">)</span>  <span class="o">&amp;</span> <span class="mi">63</span><span class="p">)</span> <span class="o">|</span> <span class="mi">128</span><span class="p">,</span>
+</span><span class='line'>        <span class="p">(</span> <span class="nx">c1</span>        <span class="o">&amp;</span> <span class="mi">63</span><span class="p">)</span> <span class="o">|</span> <span class="mi">128</span>
+</span><span class='line'>      <span class="p">);</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nx">enc</span> <span class="o">!==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">end</span> <span class="o">&gt;</span> <span class="nx">start</span><span class="p">)</span> <span class="p">{</span>
@@ -614,7 +651,7 @@ Please feel free to post this to the various script repositories, as I am not es
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Kevin van Zonneveld -
+  Copyright &copy; 2013 - Kevin van Zonneveld -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
    -
   <span class="credit">Theme by <a href="http://melandri.net/2012/07/23/darkstripes-octopress-theme-released/">alessandro melandri</a></span>

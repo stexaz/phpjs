@@ -55,14 +55,13 @@
   </a>
   <header role="banner"><hgroup>
   <div id="logo">
-  	<div id="logoLeft">{</div>
-  	<div id="logoText">php</div>
-  	<div id="logoRight">}</div>
+    <h1><a href="/">php.js</a></h1>
   	<div class="clear"></div>
   </div>
-  <h1><a href="/">.js</a></h1>
+
   
-    <h2>A resource of php functions in JavaScript</h2>
+  
+    <h2>Learn how to do it in JavaScript. Explore boundaries porting languages. Enjoy functions that turn out to be useful.</h2>
   
   <div class="clear"></div>
 </hgroup>
@@ -365,6 +364,11 @@
 <span class='line-number'>256</span>
 <span class='line-number'>257</span>
 <span class='line-number'>258</span>
+<span class='line-number'>259</span>
+<span class='line-number'>260</span>
+<span class='line-number'>261</span>
+<span class='line-number'>262</span>
+<span class='line-number'>263</span>
 </pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">function</span> <span class="nx">file_get_contents</span> <span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">flags</span><span class="p">,</span> <span class="nx">context</span><span class="p">,</span> <span class="nx">offset</span><span class="p">,</span> <span class="nx">maxLen</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>  <span class="c1">// Read the entire file into a string</span>
 </span><span class='line'>  <span class="c1">//</span>
@@ -592,10 +596,15 @@
 </span><span class='line'>      <span class="c1">// responseText.charCodeAt(x) &amp; 0xFF; // throw away high-order byte (f7) where x is 0 to responseText.length-1 (see notes in our substr())</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nx">http_options</span> <span class="o">&amp;&amp;</span> <span class="nx">http_options</span><span class="p">[</span><span class="s1">&#39;phpjs.sendAsBinary&#39;</span><span class="p">])</span> <span class="p">{</span> <span class="c1">// For content sent in a POST or PUT request (use with file_put_contents()?)</span>
-</span><span class='line'>      <span class="nx">req</span><span class="p">.</span><span class="nx">sendAsBinary</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span> <span class="c1">// In Firefox, only available FF3+</span>
-</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>      <span class="nx">req</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">try</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">http_options</span> <span class="o">&amp;&amp;</span> <span class="nx">http_options</span><span class="p">[</span><span class="s1">&#39;phpjs.sendAsBinary&#39;</span><span class="p">])</span> <span class="p">{</span> <span class="c1">// For content sent in a POST or PUT request (use with file_put_contents()?)</span>
+</span><span class='line'>        <span class="nx">req</span><span class="p">.</span><span class="nx">sendAsBinary</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span> <span class="c1">// In Firefox, only available FF3+</span>
+</span><span class='line'>      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">req</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="c1">// catches exception reported in issue #66</span>
+</span><span class='line'>      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'>
 </span><span class='line'>    <span class="nx">tmp</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">getAllResponseHeaders</span><span class="p">();</span>
@@ -1168,7 +1177,7 @@ I&#8217;m having a wee problem; this doesn&#8217;t appear to work cross-domains.
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Kevin van Zonneveld -
+  Copyright &copy; 2013 - Kevin van Zonneveld -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
    -
   <span class="credit">Theme by <a href="http://melandri.net/2012/07/23/darkstripes-octopress-theme-released/">alessandro melandri</a></span>

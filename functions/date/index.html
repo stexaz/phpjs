@@ -70,14 +70,13 @@
   </a>
   <header role="banner"><hgroup>
   <div id="logo">
-  	<div id="logoLeft">{</div>
-  	<div id="logoText">php</div>
-  	<div id="logoRight">}</div>
+    <h1><a href="/">php.js</a></h1>
   	<div class="clear"></div>
   </div>
-  <h1><a href="/">.js</a></h1>
+
   
-    <h2>A resource of php functions in JavaScript</h2>
+  
+    <h2>Learn how to do it in JavaScript. Explore boundaries porting languages. Enjoy functions that turn out to be useful.</h2>
   
   <div class="clear"></div>
 </hgroup>
@@ -387,6 +386,8 @@
 <span class='line-number'>263</span>
 <span class='line-number'>264</span>
 <span class='line-number'>265</span>
+<span class='line-number'>266</span>
+<span class='line-number'>267</span>
 </pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">function</span> <span class="nx">date</span> <span class="p">(</span><span class="nx">format</span><span class="p">,</span> <span class="nx">timestamp</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>  <span class="c1">// http://kevin.vanzonneveld.net</span>
 </span><span class='line'>  <span class="c1">// +   original by: Carlos R. L. Rodrigues (http://www.jsfromhell.com)</span>
@@ -478,9 +479,11 @@
 </span><span class='line'>    <span class="nx">N</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="c1">// ISO-8601 day of week; 1[Mon]..7[Sun]</span>
 </span><span class='line'>      <span class="k">return</span> <span class="nx">f</span><span class="p">.</span><span class="nx">w</span><span class="p">()</span> <span class="o">||</span> <span class="mi">7</span><span class="p">;</span>
 </span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>    <span class="nx">S</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="c1">// Ordinal suffix for day of month; st, nd, rd, th</span>
-</span><span class='line'>      <span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">f</span><span class="p">.</span><span class="nx">j</span><span class="p">();</span>
-</span><span class='line'>      <span class="k">return</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="mi">4</span> <span class="o">|</span> <span class="nx">j</span> <span class="o">&gt;</span> <span class="mi">20</span> <span class="o">&amp;&amp;</span> <span class="p">([</span><span class="s1">&#39;st&#39;</span><span class="p">,</span> <span class="s1">&#39;nd&#39;</span><span class="p">,</span> <span class="s1">&#39;rd&#39;</span><span class="p">][</span><span class="nx">j</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">||</span> <span class="s1">&#39;th&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">S</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span> <span class="c1">// Ordinal suffix for day of month; st, nd, rd, th</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">f</span><span class="p">.</span><span class="nx">j</span><span class="p">()</span>
+</span><span class='line'>      <span class="nx">i</span> <span class="o">=</span> <span class="nx">j</span><span class="o">%</span><span class="mi">10</span><span class="p">;</span>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">3</span> <span class="o">&amp;&amp;</span> <span class="nb">parseInt</span><span class="p">((</span><span class="nx">j</span><span class="o">%</span><span class="mi">100</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>      <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;st&#39;</span><span class="p">,</span> <span class="s1">&#39;nd&#39;</span><span class="p">,</span> <span class="s1">&#39;rd&#39;</span><span class="p">][</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">||</span> <span class="s1">&#39;th&#39;</span><span class="p">;</span>
 </span><span class='line'>    <span class="p">},</span>
 </span><span class='line'>    <span class="nx">w</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="c1">// Day of week; 0[Sun]..6[Sat]</span>
 </span><span class='line'>      <span class="k">return</span> <span class="nx">jsdate</span><span class="p">.</span><span class="nx">getDay</span><span class="p">();</span>
@@ -2132,7 +2135,7 @@ Adam
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Kevin van Zonneveld -
+  Copyright &copy; 2013 - Kevin van Zonneveld -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
    -
   <span class="credit">Theme by <a href="http://melandri.net/2012/07/23/darkstripes-octopress-theme-released/">alessandro melandri</a></span>

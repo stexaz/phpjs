@@ -65,14 +65,13 @@
   </a>
   <header role="banner"><hgroup>
   <div id="logo">
-  	<div id="logoLeft">{</div>
-  	<div id="logoText">php</div>
-  	<div id="logoRight">}</div>
+    <h1><a href="/">php.js</a></h1>
   	<div class="clear"></div>
   </div>
-  <h1><a href="/">.js</a></h1>
+
   
-    <h2>A resource of php functions in JavaScript</h2>
+  
+    <h2>Learn how to do it in JavaScript. Explore boundaries porting languages. Enjoy functions that turn out to be useful.</h2>
   
   <div class="clear"></div>
 </hgroup>
@@ -157,6 +156,19 @@
 <span class='line-number'>38</span>
 <span class='line-number'>39</span>
 <span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
 </pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">function</span> <span class="nx">utf8_decode</span> <span class="p">(</span><span class="nx">str_data</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>  <span class="c1">// http://kevin.vanzonneveld.net</span>
 </span><span class='line'>  <span class="c1">// +   original by: Webtoolkit.info (http://www.webtoolkit.info/)</span>
@@ -167,31 +179,44 @@
 </span><span class='line'>  <span class="c1">// +   bugfixed by: Onno Marsman</span>
 </span><span class='line'>  <span class="c1">// +      input by: Brett Zamir (http://brett-zamir.me)</span>
 </span><span class='line'>  <span class="c1">// +   bugfixed by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)</span>
+</span><span class='line'>  <span class="c1">// +   bugfixed by: kirilloid</span>
 </span><span class='line'>  <span class="c1">// *     example 1: utf8_decode(&#39;Kevin van Zonneveld&#39;);</span>
 </span><span class='line'>  <span class="c1">// *     returns 1: &#39;Kevin van Zonneveld&#39;</span>
+</span><span class='line'>
 </span><span class='line'>  <span class="kd">var</span> <span class="nx">tmp_arr</span> <span class="o">=</span> <span class="p">[],</span>
 </span><span class='line'>    <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
 </span><span class='line'>    <span class="nx">ac</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
 </span><span class='line'>    <span class="nx">c1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
 </span><span class='line'>    <span class="nx">c2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">c3</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">c3</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">c4</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="nx">str_data</span> <span class="o">+=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">str_data</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>    <span class="nx">c1</span> <span class="o">=</span> <span class="nx">str_data</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
-</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nx">c1</span> <span class="o">&lt;</span> <span class="mi">128</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nx">c1</span> <span class="o">&lt;=</span> <span class="mi">191</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>      <span class="nx">tmp_arr</span><span class="p">[</span><span class="nx">ac</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span><span class="nx">c1</span><span class="p">);</span>
 </span><span class='line'>      <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">c1</span> <span class="o">&gt;</span> <span class="mi">191</span> <span class="o">&amp;&amp;</span> <span class="nx">c1</span> <span class="o">&lt;</span> <span class="mi">224</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">c1</span> <span class="o">&lt;=</span> <span class="mi">223</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>      <span class="nx">c2</span> <span class="o">=</span> <span class="nx">str_data</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
 </span><span class='line'>      <span class="nx">tmp_arr</span><span class="p">[</span><span class="nx">ac</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(((</span><span class="nx">c1</span> <span class="o">&amp;</span> <span class="mi">31</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="nx">c2</span> <span class="o">&amp;</span> <span class="mi">63</span><span class="p">));</span>
 </span><span class='line'>      <span class="nx">i</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">c1</span> <span class="o">&lt;=</span> <span class="mi">239</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="c1">// http://en.wikipedia.org/wiki/UTF-8#Codepage_layout</span>
 </span><span class='line'>      <span class="nx">c2</span> <span class="o">=</span> <span class="nx">str_data</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
 </span><span class='line'>      <span class="nx">c3</span> <span class="o">=</span> <span class="nx">str_data</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">);</span>
 </span><span class='line'>      <span class="nx">tmp_arr</span><span class="p">[</span><span class="nx">ac</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(((</span><span class="nx">c1</span> <span class="o">&amp;</span> <span class="mi">15</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">12</span><span class="p">)</span> <span class="o">|</span> <span class="p">((</span><span class="nx">c2</span> <span class="o">&amp;</span> <span class="mi">63</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="nx">c3</span> <span class="o">&amp;</span> <span class="mi">63</span><span class="p">));</span>
 </span><span class='line'>      <span class="nx">i</span> <span class="o">+=</span> <span class="mi">3</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">c2</span> <span class="o">=</span> <span class="nx">str_data</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span><span class='line'>      <span class="nx">c3</span> <span class="o">=</span> <span class="nx">str_data</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">);</span>
+</span><span class='line'>      <span class="nx">c4</span> <span class="o">=</span> <span class="nx">str_data</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">3</span><span class="p">);</span>
+</span><span class='line'>      <span class="nx">c1</span> <span class="o">=</span> <span class="p">((</span><span class="nx">c1</span> <span class="o">&amp;</span> <span class="mi">7</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">18</span><span class="p">)</span> <span class="o">|</span> <span class="p">((</span><span class="nx">c2</span> <span class="o">&amp;</span> <span class="mi">63</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">12</span><span class="p">)</span> <span class="o">|</span> <span class="p">((</span><span class="nx">c3</span> <span class="o">&amp;</span> <span class="mi">63</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="nx">c4</span> <span class="o">&amp;</span> <span class="mi">63</span><span class="p">);</span>
+</span><span class='line'>      <span class="nx">c1</span> <span class="o">-=</span> <span class="mh">0x10000</span><span class="p">;</span>
+</span><span class='line'>      <span class="nx">tmp_arr</span><span class="p">[</span><span class="nx">ac</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span><span class="mh">0xD800</span> <span class="o">|</span> <span class="p">((</span><span class="nx">c1</span><span class="o">&gt;&gt;</span><span class="mi">10</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0x3FF</span><span class="p">));</span>
+</span><span class='line'>      <span class="nx">tmp_arr</span><span class="p">[</span><span class="nx">ac</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span><span class="mh">0xDC00</span> <span class="o">|</span> <span class="p">(</span><span class="nx">c1</span> <span class="o">&amp;</span> <span class="mh">0x3FF</span><span class="p">));</span>
+</span><span class='line'>      <span class="nx">i</span> <span class="o">+=</span> <span class="mi">4</span><span class="p">;</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'>  <span class="p">}</span>
 </span><span class='line'>
@@ -684,7 +709,7 @@ This implementation is extremely slow in IE due to string concatenation. It is m
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Kevin van Zonneveld -
+  Copyright &copy; 2013 - Kevin van Zonneveld -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
    -
   <span class="credit">Theme by <a href="http://melandri.net/2012/07/23/darkstripes-octopress-theme-released/">alessandro melandri</a></span>

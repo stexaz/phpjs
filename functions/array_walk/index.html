@@ -65,14 +65,13 @@
   </a>
   <header role="banner"><hgroup>
   <div id="logo">
-  	<div id="logoLeft">{</div>
-  	<div id="logoText">php</div>
-  	<div id="logoRight">}</div>
+    <h1><a href="/">php.js</a></h1>
   	<div class="clear"></div>
   </div>
-  <h1><a href="/">.js</a></h1>
+
   
-    <h2>A resource of php functions in JavaScript</h2>
+  
+    <h2>Learn how to do it in JavaScript. Explore boundaries porting languages. Enjoy functions that turn out to be useful.</h2>
   
   <div class="clear"></div>
 </hgroup>
@@ -215,13 +214,12 @@
 <span class='line-number'>96</span>
 <span class='line-number'>97</span>
 <span class='line-number'>98</span>
-<span class='line-number'>99</span>
 </pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">function</span> <span class="nx">array_walk</span> <span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">funcname</span><span class="p">,</span> <span class="nx">userdata</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>  <span class="c1">// http://kevin.vanzonneveld.net</span>
 </span><span class='line'>  <span class="c1">// +   original by: Johnny Mast (http://www.phpvrouwen.nl)</span>
 </span><span class='line'>  <span class="c1">// +   bugfixed by: David</span>
 </span><span class='line'>  <span class="c1">// +   improved by: Brett Zamir (http://brett-zamir.me)</span>
-</span><span class='line'>  <span class="c1">// %   note 1: Using ini_set(&#39;phpjs.no-eval&#39;, true) will only work with </span>
+</span><span class='line'>  <span class="c1">// %   note 1: Using ini_set(&#39;phpjs.no-eval&#39;, true) will only work with</span>
 </span><span class='line'>  <span class="c1">// %   note 1:  user-defined string functions, not built-in functions like void()</span>
 </span><span class='line'>  <span class="c1">// *     example 1: array_walk ({&#39;a&#39;:&#39;b&#39;}, &#39;void&#39;, &#39;userdata&#39;);</span>
 </span><span class='line'>  <span class="c1">// *     returns 1: true</span>
@@ -235,7 +233,6 @@
 </span><span class='line'>  <span class="c1">// *     example 5: var arr = array({40: &#39;My age&#39;}, {50: &#39;My IQ&#39;});</span>
 </span><span class='line'>  <span class="c1">// *     example 5: array_walk(arr, [window, &#39;prompt&#39;]);</span>
 </span><span class='line'>  <span class="c1">// *     returns 5: [object Object]</span>
-</span><span class='line'>
 </span><span class='line'>  <span class="kd">var</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">ini</span><span class="p">;</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">array</span> <span class="o">||</span> <span class="k">typeof</span> <span class="nx">array</span> <span class="o">!==</span> <span class="s1">&#39;object&#39;</span><span class="p">)</span> <span class="p">{</span>
@@ -528,7 +525,7 @@ eval(funcname + '(array[key] , key)');
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Kevin van Zonneveld -
+  Copyright &copy; 2013 - Kevin van Zonneveld -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
    -
   <span class="credit">Theme by <a href="http://melandri.net/2012/07/23/darkstripes-octopress-theme-released/">alessandro melandri</a></span>

@@ -67,14 +67,13 @@
   </a>
   <header role="banner"><hgroup>
   <div id="logo">
-  	<div id="logoLeft">{</div>
-  	<div id="logoText">php</div>
-  	<div id="logoRight">}</div>
+    <h1><a href="/">php.js</a></h1>
   	<div class="clear"></div>
   </div>
-  <h1><a href="/">.js</a></h1>
+
   
-    <h2>A resource of php functions in JavaScript</h2>
+  
+    <h2>Learn how to do it in JavaScript. Explore boundaries porting languages. Enjoy functions that turn out to be useful.</h2>
   
   <div class="clear"></div>
 </hgroup>
@@ -192,15 +191,15 @@
 </span><span class='line'>  <span class="nx">input</span> <span class="o">+=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
 </span><span class='line'>  <span class="nx">pad_string</span> <span class="o">=</span> <span class="nx">pad_string</span> <span class="o">!==</span> <span class="kc">undefined</span> <span class="o">?</span> <span class="nx">pad_string</span> <span class="o">:</span> <span class="s1">&#39; &#39;</span><span class="p">;</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">pad_type</span> <span class="o">!=</span> <span class="s1">&#39;STR_PAD_LEFT&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">pad_type</span> <span class="o">!=</span> <span class="s1">&#39;STR_PAD_RIGHT&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">pad_type</span> <span class="o">!=</span> <span class="s1">&#39;STR_PAD_BOTH&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">pad_type</span> <span class="o">!==</span> <span class="s1">&#39;STR_PAD_LEFT&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">pad_type</span> <span class="o">!==</span> <span class="s1">&#39;STR_PAD_RIGHT&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">pad_type</span> <span class="o">!==</span> <span class="s1">&#39;STR_PAD_BOTH&#39;</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>    <span class="nx">pad_type</span> <span class="o">=</span> <span class="s1">&#39;STR_PAD_RIGHT&#39;</span><span class="p">;</span>
 </span><span class='line'>  <span class="p">}</span>
 </span><span class='line'>  <span class="k">if</span> <span class="p">((</span><span class="nx">pad_to_go</span> <span class="o">=</span> <span class="nx">pad_length</span> <span class="o">-</span> <span class="nx">input</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nx">pad_type</span> <span class="o">==</span> <span class="s1">&#39;STR_PAD_LEFT&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nx">pad_type</span> <span class="o">===</span> <span class="s1">&#39;STR_PAD_LEFT&#39;</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>      <span class="nx">input</span> <span class="o">=</span> <span class="nx">str_pad_repeater</span><span class="p">(</span><span class="nx">pad_string</span><span class="p">,</span> <span class="nx">pad_to_go</span><span class="p">)</span> <span class="o">+</span> <span class="nx">input</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">pad_type</span> <span class="o">==</span> <span class="s1">&#39;STR_PAD_RIGHT&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">pad_type</span> <span class="o">===</span> <span class="s1">&#39;STR_PAD_RIGHT&#39;</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>      <span class="nx">input</span> <span class="o">=</span> <span class="nx">input</span> <span class="o">+</span> <span class="nx">str_pad_repeater</span><span class="p">(</span><span class="nx">pad_string</span><span class="p">,</span> <span class="nx">pad_to_go</span><span class="p">);</span>
-</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">pad_type</span> <span class="o">==</span> <span class="s1">&#39;STR_PAD_BOTH&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">pad_type</span> <span class="o">===</span> <span class="s1">&#39;STR_PAD_BOTH&#39;</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>      <span class="nx">half</span> <span class="o">=</span> <span class="nx">str_pad_repeater</span><span class="p">(</span><span class="nx">pad_string</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ceil</span><span class="p">(</span><span class="nx">pad_to_go</span> <span class="o">/</span> <span class="mi">2</span><span class="p">));</span>
 </span><span class='line'>      <span class="nx">input</span> <span class="o">=</span> <span class="nx">half</span> <span class="o">+</span> <span class="nx">input</span> <span class="o">+</span> <span class="nx">half</span><span class="p">;</span>
 </span><span class='line'>      <span class="nx">input</span> <span class="o">=</span> <span class="nx">input</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">pad_length</span><span class="p">);</span>
@@ -704,7 +703,7 @@ Do you have a list of functions that are &amp;quot;in the works&amp;quot; so tha
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Kevin van Zonneveld -
+  Copyright &copy; 2013 - Kevin van Zonneveld -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
    -
   <span class="credit">Theme by <a href="http://melandri.net/2012/07/23/darkstripes-octopress-theme-released/">alessandro melandri</a></span>

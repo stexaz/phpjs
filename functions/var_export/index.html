@@ -66,14 +66,13 @@
   </a>
   <header role="banner"><hgroup>
   <div id="logo">
-  	<div id="logoLeft">{</div>
-  	<div id="logoText">php</div>
-  	<div id="logoRight">}</div>
+    <h1><a href="/">php.js</a></h1>
   	<div class="clear"></div>
   </div>
-  <h1><a href="/">.js</a></h1>
+
   
-    <h2>A resource of php functions in JavaScript</h2>
+  
+    <h2>Learn how to do it in JavaScript. Explore boundaries porting languages. Enjoy functions that turn out to be useful.</h2>
   
   <div class="clear"></div>
 </hgroup>
@@ -256,7 +255,7 @@
 </span><span class='line'>    <span class="nx">x</span> <span class="o">=</span> <span class="p">[],</span>
 </span><span class='line'>    <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
 </span><span class='line'>    <span class="nx">funcParts</span> <span class="o">=</span> <span class="p">[],</span>
-</span><span class='line'>    <span class="c1">// We use the last argument (not part of PHP) to pass in </span>
+</span><span class='line'>    <span class="c1">// We use the last argument (not part of PHP) to pass in</span>
 </span><span class='line'>    <span class="c1">// our indentation level</span>
 </span><span class='line'>    <span class="nx">idtLevel</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">||</span> <span class="mi">2</span><span class="p">,</span>
 </span><span class='line'>    <span class="nx">innerIndent</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
@@ -323,11 +322,11 @@
 </span><span class='line'>    <span class="nx">funcParts</span> <span class="o">=</span> <span class="nx">mixed_expression</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span>
 </span><span class='line'>            <span class="nx">match</span><span class="p">(</span><span class="sr">/function .*?\((.*?)\) \{([\s\S]*)\}/</span><span class="p">);</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="c1">// For lambda functions, var_export() outputs such as the following:  </span>
-</span><span class='line'>    <span class="c1">// &#39;\000lambda_1&#39;. Since it will probably not be a common use to </span>
-</span><span class='line'>    <span class="c1">// expect this (unhelpful) form, we&#39;ll use another PHP-exportable </span>
-</span><span class='line'>    <span class="c1">// construct, create_function() (though dollar signs must be on the </span>
-</span><span class='line'>    <span class="c1">// variables in JavaScript); if using instead in JavaScript and you </span>
+</span><span class='line'>    <span class="c1">// For lambda functions, var_export() outputs such as the following:</span>
+</span><span class='line'>    <span class="c1">// &#39;\000lambda_1&#39;. Since it will probably not be a common use to</span>
+</span><span class='line'>    <span class="c1">// expect this (unhelpful) form, we&#39;ll use another PHP-exportable</span>
+</span><span class='line'>    <span class="c1">// construct, create_function() (though dollar signs must be on the</span>
+</span><span class='line'>    <span class="c1">// variables in JavaScript); if using instead in JavaScript and you</span>
 </span><span class='line'>    <span class="c1">// are using the namespaced version, note that create_function() will</span>
 </span><span class='line'>    <span class="c1">// not be available as a global</span>
 </span><span class='line'>    <span class="nx">retstr</span> <span class="o">=</span> <span class="s2">&quot;create_function (&#39;&quot;</span> <span class="o">+</span> <span class="nx">funcParts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;&#39;, &#39;&quot;</span> <span class="o">+</span>
@@ -717,7 +716,7 @@ sleep ?
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Kevin van Zonneveld -
+  Copyright &copy; 2013 - Kevin van Zonneveld -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
    -
   <span class="credit">Theme by <a href="http://melandri.net/2012/07/23/darkstripes-octopress-theme-released/">alessandro melandri</a></span>
