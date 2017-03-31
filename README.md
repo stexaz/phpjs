@@ -1,28 +1,43 @@
-php.js is a resource that offers community-built JavaScript alternatives to PHP functions.
+# Locutus
 
-More info at: http://phpjs.org/about
+<!-- badges/ -->
+[![Build Status](https://secure.travis-ci.org/kvz/locutus.svg?branch=master)](http://travis-ci.org/kvz/locutus "Check this project's build status on TravisCI")
+<!-- /badges -->
 
-# Building the site
+All your standard libraries will be assimilated into our JavaScript collective. Resistance is futile.
 
-## Prerequisites
+More info at: http://locutus.io/
 
-The site is built using Octopress. For instructions how to set things up, 
-please check [here](http://kvz.io/blog/2012/09/25/blog-with-octopress/).
+## Install
 
-## build, generate, commit, push, deploy
-
-```shell
-make site MSG="Updated site"
+```bash
+npm install locutus
 ```
 
-## preview locally
+## Use
 
-```shell
-make site-preview
+```bash
+vim index.js
 ```
 
-## reset site (should not be necessary)
-
-```shell
-make site-clean
+```javascript
+var sprintf = require('locutus/php/strings/sprintf')
+var echo = require('locutus/php/strings/echo')
+var effectiveness = 'futile'
+echo(sprintf('Resistance is %s', effectiveness))
 ```
+
+```javascript
+var strings = require('locutus/golang/strings')
+console.log(strings.Contains('Locutus', 'cut'))
+```
+
+```bash
+$ node index.js
+Resistance is futile
+true
+```
+
+## Development
+
+Some guidelines and instructions can be found in [CONTRIBUTING.md](CONTRIBUTING.md)

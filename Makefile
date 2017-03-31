@@ -1,39 +1,40 @@
-setup:
-	git pull && \
-	cd _octopress && \
-	rake setup_github_pages\[git@github.com:kvz/phpjs.git\] && \
-	cd .. ; \
+# Licensed under MIT.
+# Copyright (2016) by Kevin van Zonneveld https://twitter.com/kvz
+#
+# https://www.npmjs.com/package/fakefile
+#
+# This Makefile offers convience shortcuts into any Node.js project that utilizes npm scripts.
+# It functions as a wrapper around the actual listed in `package.json`
+# So instead of typing:
+#
+#  $ npm script build:assets
+#
+# you could also type:
+#
+#  $ make build-assets
+#
+# Notice that colons (:) are replaced by dashes for Makefile compatibility.
+#
+# The benefits of this wrapper are:
+#
+# - You get to keep the the scripts package.json, which is more portable
+#   (Makefiles & Windows are harder to mix)
+# - Offer a polite way into the project for developers coming from different
+#   languages (npm scripts is obviously very Node centric)
+# - Profit from better autocomplete (make <TAB><TAB>) than npm currently offers.
+#   OSX users will have to install bash-completion
+#   (http://davidalger.com/development/bash-completion-on-os-x-with-brew/)
 
-test:
-	cd _tests && npm install
-	find functions -type f |grep -v '/_' |xargs node _tests/cli.js -f
+define npm_script_targets
+TARGETS := $(shell node -e 'for (var k in require("./package.json").scripts) {console.log(k.replace(/:/g, "-"));}')
+$$(TARGETS):
+	npm run $(subst -,:,$(MAKECMDGOALS))
 
-site:
-	git pull && \
-	cd _octopress && \
-	bundle install && \
-	npm install && \
-	rake integrate && \
-	rake build && \
-	rake generate && \
-	rake deploy ; \
-	cd .. ; \
-	git add . ; \
-	git commit -am "Update site" ; \
-	git push origin master
+.PHONY: $$(TARGETS)
+endef
 
-site-clean:
-	cd _octopress && \
-	git clean -fd ; \
-	git reset --hard ; \
-	rake clean ; \
-	cd ..
+$(eval $(call npm_script_targets))
 
-site-preview:
-	cd _octopress && \
-	rake build && \
-	rake generate && \
-	rake preview ; \
-	cd ..
-
-.PHONY: site%
+# These npm run scripts are available, without needing to be mentioned in `package.json`
+install:
+	npm run install
